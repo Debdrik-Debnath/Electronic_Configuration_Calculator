@@ -55,5 +55,5 @@ Bugs:
 Doesn't handle Electron Jumping [from ns to (n-1)d and from ns to (n-2)f Orbitals]
 Doesn't account for Quantum Physics introducing:
 	1. Breakdown of Aufbau Principle past z = 137.
-	2. Issues with Quantum Physics around z ~ 173.
+	2. Theoretically HARD LIMIT around z ~ 173, including Vacuum Decay after z > 173.
 */
