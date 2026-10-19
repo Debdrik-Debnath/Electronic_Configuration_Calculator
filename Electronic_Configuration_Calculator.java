@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-// improvements over _v0 are marked with #
-// bug fixes marked with $
 
 class Electronic_Configuration_Calculator
 {
@@ -20,7 +18,7 @@ class Electronic_Configuration_Calculator
 				for(int j = i; j >= 0; j--)
 					subshells.add(String.valueOf(l[j]));   
 		
-		// # numbering each orbital type safely using endsWith
+		// numbering each orbital type safely using endsWith
 		for(int orbital = 0; orbital < l.length; orbital++)
 		{
 			int shell = orbital + 1;
@@ -39,16 +37,15 @@ class Electronic_Configuration_Calculator
 				return 2; 
 	}
 
-	// $ Handles Electron Jumping [from ns to (n-1)d and from ns to (n-2)f Orbitals].
 	public String getConfig(int atomicNumber, String divider)
 	{
 		if (atomicNumber <= 0) return "Invalid Atomic Number";
 		int remainingElectrons = atomicNumber;
 		
-		// $# parallel arrays to keep track of filled electrons per subshell
+		// parallel arrays to keep track of filled electrons per subshell
 		int size = cachedSubshells.size();
 		int[] allocated = new int[size];
-		int sOrbitalIndex = -1; // $# tracks the active ns orbital index for borrowing
+		int sOrbitalIndex = -1; // tracks the active ns orbital index for borrowing
 
 		// Step 1: Standard Aufbau Distribution
 		for (int i = 0; i < size; i++)
@@ -63,10 +60,10 @@ class Electronic_Configuration_Calculator
 			allocated[i] = electronsToPlace;
 			remainingElectrons -= electronsToPlace;
 
-			// $# track the most recent 's' orbital to borrow from
+			// track the most recent 's' orbital to borrow from
 			if (orbitalType == 's') sOrbitalIndex = i;
 
-			// $$ Step 2: Dynamic Rule Evaluation (check for possibility of stability jumps)
+			// Step 2: Dynamic Rule Evaluation (check for possibility of stability jumps)
 			if (sOrbitalIndex != -1 && (orbitalType == 'd' || orbitalType == 'f'))
 			{
 				int currentCount = allocated[i];
