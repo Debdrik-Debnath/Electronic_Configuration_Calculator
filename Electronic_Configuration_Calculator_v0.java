@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class Electronic_Configuration_Calculator
+class Electronic_Configuration_Calculator_v0
 {
 	public final char[] l =	{'s','p','d','f','g','h','i','k','l','m','n','o','q','r','t','u','v','w','x','y','z'};
 	
@@ -50,3 +50,10 @@ class Electronic_Configuration_Calculator
 		return eConfig.trim();
 	}
 }
+/*
+Bugs:
+Doesn't handle Electron Jumping [from ns to (n-1)d and from ns to (n-2)f Orbitals]
+Doesn't account for Quantum Physics introducing:
+	1. Breakdown of Aufbau Principle past z = 137.
+	2. Issues with Quantum Physics around z ~ 173.
+*/
